@@ -121,3 +121,40 @@ body {
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
+
+/* RoomDescription */
+.room-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  color: #f5f5f5;
+}
+
+.room-description-content {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  max-width: 700px;
+  overflow-y: auto;
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+  color: #e5f2e6;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.room-description h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.room-description p {
+  font-size: 1.2em;
+  color: #d0e9d6;
+}
