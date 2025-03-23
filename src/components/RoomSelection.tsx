@@ -44,10 +44,10 @@ const RoomSelection = () => {
             },
             {
               role: 'user',
-              content: `You are in a ${roomName} in a house. Describe the room in fun, engaging, and detailed sentences. Limit the description to a maximum of 100 tokens and make sure the description is complete without fragments or incomplete sentences. Mention 3 key objects the player can interact with that can be further investigated. For example, for a bedroom, it could be a bookshelf, drawers, or something under the bed.`,
+              content: `You are in a ${roomName} in a house. Describe the room in fun, engaging, and descriptive sentences. The description should be without fragments or unfinished sentences and limit it to max 90 tokens. Also, mention 3 interactive objects the player could investigate in the room. Return the objects as a simple list, like ["fridge", "drawer", "sink"].`,
             },
           ],
-          max_tokens: 125,
+          max_tokens: 110,
           temperature: 0.3,
         },
         {
