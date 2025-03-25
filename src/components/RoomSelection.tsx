@@ -65,8 +65,16 @@ const RoomSelection = () => {
         response.data.choices[0].message?.content
       ) {
         const roomDescription = response.data.choices[0].message.content.trim();
+        const objectsMatch = roomDescription.match(/\[([^\]]+)\]/);
+        const objects: string[] = objectsMatch
+          ? objectsMatch[0]
+              .slice(1, -1)
+              .split(',')
+              .map((item: string) => item.trim().replace(/"/g, ''))
+          : [];
+
         navigate('/room-description', {
-          state: { description: roomDescription },
+          state: { description: roomDescription, objects },
         });
       } else {
         console.error('No valid choices or content found in API response');
