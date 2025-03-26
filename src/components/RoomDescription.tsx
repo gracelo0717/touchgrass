@@ -1,11 +1,13 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import ObjectInspection from './ObjectInspection';
 
 const RoomDescription = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { description, objects } = location.state || {};
 
   const handleOnClick = (object: string) => {
-    console.log(`Inspect this ${object}`);
+    navigate(`/inspect/${object}`);
   };
 
   return (
