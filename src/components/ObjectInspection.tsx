@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 const ObjectInspection = () => {
   const { object } = useParams();
 
-  const [riddle, setRiddle] = useState('');
-  const [answer, setAnswer] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [riddle, setRiddle] = useState<string>('');
+  const [answer, setAnswer] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     setLoading(true);
