@@ -172,7 +172,7 @@ body {
 }
 
 .objects button {
-  background-color: #007bff;
+  background-color: #3b4b5c;
   color: white;
   font-size: 1.2em;
   padding: 12px 20px;
@@ -183,7 +183,7 @@ body {
 }
 
 .objects button:hover {
-  background-color: #0056b3;
+  background-color: #526a84;
   transform: scale(1.05);
 }
 
