@@ -195,8 +195,58 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  font-family: Arial, sans-serif;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 25px;
   color: #f5f5f5;
+}
+
+.inspection h4 {
+  font-size: 2.2em;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.inspection p {
+  font-size: 1.5em;
+  color: #e5f2e6;
+  text-align: center;
+}
+
+.inspection input {
+  padding: 12px 20px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 350px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.inspection input:focus {
+  outline: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.inspection button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 28px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.2em;
+}
+
+.inspection button:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
 }
