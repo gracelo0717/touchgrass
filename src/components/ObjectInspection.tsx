@@ -6,9 +6,11 @@ const ObjectInspection = () => {
   const navigate = useNavigate();
 
   const [riddle, setRiddle] = useState<string>('');
+  const [userAnswer, setUserAnswer] = useState<string>('');
   const [answer, setAnswer] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   useEffect(() => {
     setLoading(true);
@@ -19,7 +21,7 @@ const ObjectInspection = () => {
   }, [object]);
 
   const handleSubmit = () => {
-    if (answer.toLowerCase().trim() === '') {
+    if (userAnswer.trim().toLowerCase() === answer.trim().toLowerCase()) {
       setIsCorrect(true);
       setTimeout(() => {
         console.log('navigate to the next room');
@@ -27,6 +29,7 @@ const ObjectInspection = () => {
       }, 1000);
     } else {
       setIsCorrect(false);
+      setErrorMessage('Incorrect answer. Please try again.');
     }
   };
 
@@ -41,11 +44,12 @@ const ObjectInspection = () => {
           <p>{riddle}</p>
           <input
             type='text'
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
+            value={userAnswer}
+            onChange={(e) => setUserAnswer(e.target.value)}
             placeholder='Enter your Answer'
           />
           <button onClick={handleSubmit}>Submit</button>
+          {!isCorrect && errorMessage && <p>{errorMessage}</p>}{' '}
         </>
       )}
     </div>
