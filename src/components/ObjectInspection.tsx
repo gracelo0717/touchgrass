@@ -85,7 +85,7 @@ const ObjectInspection = () => {
         <p>Loading riddle...</p>
       ) : (
         <>
-          <p>{riddle}</p>
+          <p className='riddle-text'>{riddle}</p>
           <input
             type='text'
             value={userAnswer}

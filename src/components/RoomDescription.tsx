@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import ObjectInspection from './ObjectInspection';
 
 const RoomDescription = () => {
   const location = useLocation();
