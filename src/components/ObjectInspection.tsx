@@ -46,6 +46,12 @@ const ObjectInspection = () => {
         );
 
         const riddleText = response.data?.choices[0]?.message?.content?.trim();
+        if (riddleText) {
+          const [riddlePart, solutionPart] = riddleText.split(/Solution:/i);
+
+          setRiddle(riddlePart?.trim() || 'No riddle found.');
+          setCorrectAnswer(solutionPart?.trim() || '');
+        }
       } catch (error) {
         console.error('Error fetching riddle from OpenAI:', error);
       }
