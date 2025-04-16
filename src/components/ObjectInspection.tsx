@@ -8,7 +8,7 @@ const ObjectInspection = () => {
 
   const [riddle, setRiddle] = useState<string>('');
   const [userAnswer, setUserAnswer] = useState<string>('');
-  const [answer, setAnswer] = useState<string>('');
+  const [correctAnswer, setCorrectAnswer] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -57,7 +57,9 @@ const ObjectInspection = () => {
   }, [object]);
 
   const handleSubmit = () => {
-    if (userAnswer.trim().toLowerCase() === answer.trim().toLowerCase()) {
+    if (
+      userAnswer.trim().toLowerCase() === correctAnswer.trim().toLowerCase()
+    ) {
       setIsCorrect(true);
       setTimeout(() => {
         console.log('navigate to the next room');
