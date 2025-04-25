@@ -5,10 +5,6 @@ const RoomDescription = () => {
   const navigate = useNavigate();
   const { description, objects } = location.state || {};
 
-  const handleOnClick = (object: string) => {
-    navigate(`/inspect/${object}`);
-  };
-
   return (
     <div className='room-description'>
       <h3>Room Description</h3>
