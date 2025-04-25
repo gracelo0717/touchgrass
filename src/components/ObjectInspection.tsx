@@ -1,9 +1,11 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const ObjectInspection = () => {
   const { object } = useParams();
+  const location = useLocation();
+  const { description, objects } = location.state || {};
   const navigate = useNavigate();
 
   const [riddle, setRiddle] = useState<string>('');
