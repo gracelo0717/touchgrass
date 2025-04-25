@@ -95,7 +95,23 @@ const ObjectInspection = () => {
             placeholder='Enter your Answer'
           />
           <button onClick={handleSubmit}>Submit</button>
-          {!isCorrect && errorMessage && <p>{errorMessage}</p>}{' '}
+          {!isCorrect && errorMessage && (
+            <>
+              <p>{errorMessage}</p>
+              <button
+                onClick={() =>
+                  navigate('/room-description', {
+                    state: {
+                      description,
+                      objects: objects.filter((obj: string) => obj !== object),
+                    },
+                  })
+                }
+              >
+                Try another object
+              </button>
+            </>
+          )}
         </>
       )}
     </div>
