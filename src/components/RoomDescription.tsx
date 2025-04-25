@@ -19,7 +19,17 @@ const RoomDescription = () => {
         <div className='button-container'>
           {objects && objects.length > 0 ? (
             objects.map((object: string, index: number) => (
-              <button key={index} onClick={() => handleOnClick(object)}>
+              <button
+                key={index}
+                onClick={() =>
+                  navigate(`/inspect/${object}`, {
+                    state: {
+                      description,
+                      objects,
+                    },
+                  })
+                }
+              >
                 Inspect {object}
               </button>
             ))
