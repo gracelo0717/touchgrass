@@ -70,6 +70,11 @@ const ObjectInspection = () => {
 
     if (answer === solution) {
       setIsCorrect(true);
+
+      const solved = JSON.parse(localStorage.getItem('solved') || '[]');
+      const updated = [...new Set([...solved, object])];
+      localStorage.setItem('solved', JSON.stringify(updated));
+
       setTimeout(() => {
         navigate('/next-room');
       }, 1000);
