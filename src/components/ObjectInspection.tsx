@@ -65,13 +65,13 @@ const ObjectInspection = () => {
   }, [object]);
 
   const handleSubmit = () => {
-    if (
-      userAnswer.trim().toLowerCase() === correctAnswer.trim().toLowerCase()
-    ) {
+    const answer = userAnswer.trim().toLowerCase();
+    const solution = correctAnswer.trim().toLowerCase();
+
+    if (answer === solution) {
       setIsCorrect(true);
       setTimeout(() => {
-        console.log('navigate to the next room');
-        navigate(`/next-room`);
+        navigate('/next-room');
       }, 1000);
     } else {
       setIsCorrect(false);
