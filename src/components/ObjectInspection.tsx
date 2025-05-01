@@ -116,8 +116,14 @@ const ObjectInspection = () => {
         navigate('/next-room');
       }, 1000);
     } else {
+      const newAttempts = attempts + 1;
+      setAttempts(newAttempts);
       setIsCorrect(false);
       setErrorMessage('Incorrect answer. Please try again.');
+
+      if (newAttempts === 3 && !hint) {
+        fetchHint();
+      }
     }
   };
 
