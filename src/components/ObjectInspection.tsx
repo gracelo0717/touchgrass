@@ -146,6 +146,13 @@ const ObjectInspection = () => {
           {!isCorrect && errorMessage && (
             <>
               <p>{errorMessage}</p>
+              {hint && (
+                <div className='hint'>
+                  <p>
+                    <strong>Hint:</strong> {hint}
+                  </p>
+                </div>
+              )}
               <button
                 onClick={() =>
                   navigate('/room-description', {
