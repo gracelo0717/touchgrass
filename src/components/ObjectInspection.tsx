@@ -14,6 +14,8 @@ const ObjectInspection = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const [attempts, setAttempts] = useState<number>(0);
+  const [hint, setHint] = useState<string>('');
 
   useEffect(() => {
     const fetchRiddle = async () => {
@@ -63,6 +65,41 @@ const ObjectInspection = () => {
 
     fetchRiddle();
   }, [object]);
+
+  const fetchHint = async () => {
+    try {
+      const response = await axios.post(
+        'https://api.openai.com/v1/chat/completions',
+        {
+          model: 'gpt-4o-mini',
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are an assistant in an escape room game, helping players who are stuck.',
+            },
+            {
+              role: 'user',
+              content: `Give a short and simple hint for this riddle: "${riddle}". The answer is "${correctAnswer}". Don't give away the answer but guide the player toward it. Make sure there are no incomplete sentences.`,
+            },
+          ],
+          max_tokens: 50,
+          temperature: 0.3,
+        },
+        {
+          headers: {
+            Authorization:
+              'Bearer ' + `${import.meta.env.VITE_APP_OPENAI_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      const hintText = response.data?.choices[0]?.message?.content?.trim();
+      setHint(hintText || 'No hint available.');
+    } catch (error) {
+      console.error('Error fetching hint:', error);
+    }
+  };
 
   const handleSubmit = () => {
     const answer = userAnswer.trim().toLowerCase();
