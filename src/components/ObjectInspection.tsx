@@ -8,6 +8,8 @@ const ObjectInspection = () => {
   const { description, objects } = location.state || {};
   const navigate = useNavigate();
 
+  const maxAttempts = 3;
+
   const [riddle, setRiddle] = useState<string>('');
   const [userAnswer, setUserAnswer] = useState<string>('');
   const [correctAnswer, setCorrectAnswer] = useState<string>('');
@@ -121,7 +123,7 @@ const ObjectInspection = () => {
       setIsCorrect(false);
       setErrorMessage('Incorrect answer. Please try again.');
 
-      if (newAttempts === 3 && !hint) {
+      if (newAttempts === maxAttempts && !hint) {
         fetchHint();
       }
     }
@@ -141,8 +143,20 @@ const ObjectInspection = () => {
             value={userAnswer}
             onChange={(e) => setUserAnswer(e.target.value)}
             placeholder='Enter your Answer'
+            disabled={attempts >= maxAttempts || isCorrect}
           />
-          <button onClick={handleSubmit}>Submit</button>
+          <button
+            onClick={handleSubmit}
+            disabled={attempts >= maxAttempts || isCorrect}
+          >
+            Submit
+          </button>
+          {attempts < maxAttempts && !isCorrect && (
+            <p>
+              You have {maxAttempts - attempts} attempt
+              {maxAttempts - attempts !== 1 ? 's' : ''} remaining before hint.
+            </p>
+          )}
           {!isCorrect && errorMessage && (
             <>
               <p>{errorMessage}</p>
