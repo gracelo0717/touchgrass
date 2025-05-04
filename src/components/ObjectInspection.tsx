@@ -152,7 +152,7 @@ const ObjectInspection = () => {
             Submit
           </button>
           {attempts < maxAttempts && !isCorrect && (
-            <p>
+            <p className='attempts-left'>
               You have {maxAttempts - attempts} attempt
               {maxAttempts - attempts !== 1 ? 's' : ''} remaining before hint.
             </p>
