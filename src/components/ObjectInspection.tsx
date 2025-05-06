@@ -107,6 +107,11 @@ const ObjectInspection = () => {
     const answer = userAnswer.trim().toLowerCase();
     const solution = correctAnswer.trim().toLowerCase();
 
+    if (!answer) {
+      setErrorMessage('Please enter an answer before submitting!');
+      return;
+    }
+
     if (answer === solution) {
       setIsCorrect(true);
 
