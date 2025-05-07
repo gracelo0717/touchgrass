@@ -175,16 +175,12 @@ const ObjectInspection = () => {
               </p>
             </div>
           )}
-          {!isCorrect && errorMessage && (
-            <>
-              <p>{errorMessage}</p>
-              {hint && (
-                <div className='hint'>
-                  <p>
-                    <strong>Hint:</strong> {hint}
-                  </p>
-                </div>
-              )}
+          {attempts >= maxAttempts && !isCorrect && (
+            <div>
+              <p>
+                You've used all attempts. The correct answer was:
+                <strong>{correctAnswer}</strong>.
+              </p>
               <button
                 onClick={() =>
                   navigate('/room-description', {
@@ -197,7 +193,7 @@ const ObjectInspection = () => {
               >
                 Try another object
               </button>
-            </>
+            </div>
           )}
         </>
       )}
