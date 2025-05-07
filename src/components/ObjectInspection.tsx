@@ -168,6 +168,13 @@ const ObjectInspection = () => {
               {3 - attempts !== 1 ? 's' : ''} remaining before hint.
             </p>
           )}
+          {attempts === 3 && hint && !isCorrect && (
+            <div className='hint'>
+              <p>
+                <strong>Hint:</strong> {hint}
+              </p>
+            </div>
+          )}
           {!isCorrect && errorMessage && (
             <>
               <p>{errorMessage}</p>
