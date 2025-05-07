@@ -162,10 +162,10 @@ const ObjectInspection = () => {
           >
             Submit
           </button>
-          {attempts < maxAttempts && !isCorrect && (
+          {attempts < 3 && !isCorrect && (
             <p className='attempts-left'>
-              You have {maxAttempts - attempts} attempt
-              {maxAttempts - attempts !== 1 ? 's' : ''} remaining before hint.
+              You have {3 - attempts} attempt
+              {3 - attempts !== 1 ? 's' : ''} remaining before hint.
             </p>
           )}
           {!isCorrect && errorMessage && (
