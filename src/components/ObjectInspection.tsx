@@ -8,7 +8,7 @@ const ObjectInspection = () => {
   const { description, objects } = location.state || {};
   const navigate = useNavigate();
 
-  const maxAttempts = 3;
+  const maxAttempts = 4;
 
   const [riddle, setRiddle] = useState<string>('');
   const [userAnswer, setUserAnswer] = useState<string>('');
@@ -128,8 +128,14 @@ const ObjectInspection = () => {
       setIsCorrect(false);
       setErrorMessage('Incorrect answer. Please try again.');
 
-      if (newAttempts === maxAttempts && !hint) {
+      if (newAttempts === 3 && !hint) {
         fetchHint();
+      }
+
+      if (newAttempts >= maxAttempts) {
+        setErrorMessage(`The correct answer was: "${correctAnswer}".`);
+      } else {
+        setErrorMessage('Incorrect answer. Please try again.');
       }
     }
   };
