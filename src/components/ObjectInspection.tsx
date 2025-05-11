@@ -183,7 +183,7 @@ const ObjectInspection = () => {
               </p>
               <button
                 onClick={() =>
-                  navigate('/room-description', {
+                  navigate('/next-room', {
                     state: {
                       description,
                       objects: objects.filter((obj: string) => obj !== object),
