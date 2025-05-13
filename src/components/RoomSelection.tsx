@@ -32,6 +32,14 @@ const RoomSelection = () => {
         return;
       }
 
+      const visitedRooms = JSON.parse(
+        localStorage.getItem('visitedRooms') || '[]'
+      );
+      if (!visitedRooms.includes(roomName)) {
+        visitedRooms.push(roomName);
+        localStorage.setItem('visitedRooms', JSON.stringify(visitedRooms));
+      }
+
       const response = await axios.post(
         'https://api.openai.com/v1/chat/completions',
         {
