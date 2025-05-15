@@ -125,6 +125,14 @@ const ObjectInspection = () => {
           localStorage.getItem('completedRooms') || '[]'
         );
         const currentRoom = localStorage.getItem('currentRoom');
+
+        if (currentRoom && !completedRooms.includes(currentRoom)) {
+          completedRooms.push(currentRoom);
+          localStorage.setItem(
+            'completedRooms',
+            JSON.stringify(completedRooms)
+          );
+        }
       }
 
       setTimeout(() => {
