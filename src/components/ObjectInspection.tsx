@@ -119,6 +119,14 @@ const ObjectInspection = () => {
       const updated = [...new Set([...solved, object])];
       localStorage.setItem('solved', JSON.stringify(updated));
 
+      const allSolved = objects.every((obj: string) => updated.includes(obj));
+      if (allSolved) {
+        const completedRooms = JSON.parse(
+          localStorage.getItem('completedRooms') || '[]'
+        );
+        const currentRoom = localStorage.getItem('currentRoom');
+      }
+
       setTimeout(() => {
         navigate('/next-room');
       }, 1000);
